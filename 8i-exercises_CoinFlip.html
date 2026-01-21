@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>06-BooleansExercises</title>
+
+</head>
+
+<body>
+    <button onclick="playGame('heads');">Heads</button>
+    <button onclick="playGame('tails');">Tails</button>
+
+    <script>
+        //
+        const score = JSON.parse(localStorage.getItem('score')) ?? {
+            wins: 0,
+            losses: 0
+        };
+        function playGame(guess) {
+            let betResult = flipACoin() === guess ? 'You win!' : 'You lose!';
+            betResult === 'You win!' ? score.wins+=1 : score.losses+=1;
+
+            console.log(betResult);
+            console.log(`Wins: ${score.wins}; Losses: ${score.losses}.`);
+            localStorage.setItem('score', JSON.stringify(score));
+        }
+
+        function flipACoin(){
+            return Math.random() < 0.5 ? 'heads' : 'tails';  
+        }
+    </script>
+</body>
+
+</html>

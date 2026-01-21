@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Calculator</title>
+</head>
+
+<body>
+
+    <p>
+        <button onclick="
+            updateCalculation(1);">
+            1</button>
+
+        <button onclick="
+            updateCalculation(2);">
+            2</button>
+
+        <button onclick="
+            updateCalculation(3)">
+            3</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(4)">
+            4</button>
+
+        <button onclick="
+            updateCalculation(5)">
+            5</button>
+
+        <button onclick="
+            updateCalculation(6)">
+            6</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation(7)">
+            7</button>
+
+        <button onclick="
+            updateCalculation(8)">
+            8</button>
+
+        <button onclick="
+            updateCalculation(9)">
+            9</button>
+    </p>
+    <p>
+        <button onclick="
+            updateCalculation('+')">
+            +</button>
+
+        <button onclick="
+            updateCalculation('-')">
+            -</button>
+
+        <button onclick="
+            evaluateCalculation();">
+            =</button>
+        <button onclick="
+            resetCalculation();
+            ">
+            C</button>
+    </p>
+</body>
+
+
+<script>
+    let calculation = localStorage.getItem('calculation') ?? '';
+    let result = 0;
+    function updateCalculation(param) {
+        calculation += param;
+        localStorage.setItem('calculation', calculation);
+        console.log(calculation);
+    }
+    function evaluateCalculation() {
+        result = eval(calculation);
+        console.log(result);
+        calculation = String(result);
+    }
+    function resetCalculation() {
+        calculation = '';
+        localStorage.removeItem('calculation');
+        result = 0;
+        console.log('Calculation reseted.\n' + calculation);
+    }
+</script>
+<html>

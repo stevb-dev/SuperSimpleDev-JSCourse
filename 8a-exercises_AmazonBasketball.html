@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Functions</title>
+  
+</head>
+<body>
+  
+  
+  <script>
+    const productBasketball = {
+        name: "basketball",
+        price: 2095
+    };
+    const productTennisball = {
+        name: "tennisball",
+        price: 395
+    }
+    //console.log(comparePrice(productBasketball, productTennisball));
+    console.log(isSameProduct(productBasketball, productBasketball));
+    /* console.log(product);
+    product.price+=500;
+    console.log(product);
+    product['delivery-time'] = '3 days';
+    console.log(product); */
+
+    //8d
+    function comparePrice(product1, product2) {
+        return product1.price > product2.price ? product2 : product1;
+    }
+
+    //8e
+    function isSameProduct(product1, product2){
+        const result = product1.name === product2.name && product1.price === product2.price;
+        return result;
+    }
+</script>
+</body>
+
+</html>
